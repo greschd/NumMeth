@@ -27,7 +27,6 @@ def example1():
     xlabel(r"$x$")
     ylabel(r"$y$")
     legend(loc = "upper left")
-    # entsprechende Zeile aktivieren, um als .pdf oder .png zu speichern
     savefig("plot1" + filetype) 
     show()
 
