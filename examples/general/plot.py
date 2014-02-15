@@ -15,7 +15,10 @@ from matplotlib.pyplot import *
 x = linspace(0,1,100)
 
 f = lambda x: x**2
-    
+
+filetype = ".pdf" # vereinfacht den Wechsel zwischen Dateitypen (.pdf/.png)
+
+# einfaches Beispiel mit Labels
 def example1():
     # Bsp 1: Plot mit Labels
     figure()
@@ -24,16 +27,18 @@ def example1():
     xlabel(r"$x$")
     ylabel(r"$y$")
     legend(loc = "upper left")
-    #~ savefig("plot.pdf")
-    #~ savefig("plot.png")
+    # entsprechende Zeile aktivieren, um als .pdf oder .png zu speichern
+    savefig("plot1" + filetype) 
     show()
 
+# figure() - Befehl
 def example2():
     # Der Befehl "figure()" erzeugt einen neuen Plot: vergleiche
     # Variante 1:
     figure()
     plot(x,f(x))
     plot(x,f(f(x)))
+    savefig("plot2" + filetype)
     show()
     
     # Variante 2:
@@ -41,7 +46,19 @@ def example2():
     plot(x,f(x))
     figure()
     plot(x,f(f(x)))
+    savefig("plot3" + filetype)
     show()
 
-example1()
-example2()
+# Subplots - einfaches Beispiel
+def example3():
+    figure()
+    subplot(2,1,1) # 1. Variable: Anzahl Zeilen, 2.: Anzahl Spalten, 3.: "aktiver" Subplot
+    plot(x, f(x))
+    subplot(2,1,2)
+    plot(x, f(f(x)))
+    savefig("plot4" + filetype)
+    
+
+#~ example1()
+#~ example2()
+example3()
