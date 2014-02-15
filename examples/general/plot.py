@@ -22,8 +22,10 @@ filetype = ".pdf" # vereinfacht den Wechsel zwischen Dateitypen (.pdf/.png)
 def example1():
     # Bsp 1: Plot mit Labels
     figure()
-    plot(x, f(x), label="$f(x)$")
+    plot(x, f(x), label=r"$f(x)$") # mit r"$...$" kann man LaTeX - Code eingeben (das r ist dazu da, dass z. Bsp ein Backslash von Python ignoriert wird "raw string")
     grid(True)
+    suptitle("hoeherer Titel", fontsize=14, fontweight='bold') # die Optionen fontsize und fontweight sind optional
+    title("tieferer Titel", fontsize=12, fontstyle='italic') # viele weitere Optionen können in der matplotlib - Dokumentation gefunden werden
     xlabel(r"$x$")
     ylabel(r"$y$")
     legend(loc = "upper left")
@@ -58,6 +60,6 @@ def example3():
     savefig("plot4" + filetype)
     
 
-#~ example1()
+example1()
 #~ example2()
-example3()
+#~ example3()
