@@ -1,0 +1,11 @@
+#!/usr/bin/python3.2
+# -*- coding: utf-8 -*-
+#
+# Author:  Dominik Gresch <greschd@ethz.ch>
+# Date:    25.02.2014 23:21:21 CET
+# File:    endung.py
+
+import sys
+
+if __name__ == "__main__":
+    print("Die Endung .py ist nur eine Konvention (allerdings eine nuetzliche, da so jeder Texteditor weiss, dass es Python - Code ist)")
