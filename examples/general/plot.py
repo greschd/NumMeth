@@ -61,5 +61,5 @@ def example3():
     
 
 example1()
-#~ example2()
-#~ example3()
+example2()
+example3()

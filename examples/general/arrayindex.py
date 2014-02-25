@@ -20,8 +20,8 @@ if __name__ == "__main__":
     print('\n')
     
     size = 4;
-    line = lambda n, m: [x for x in xrange((n * m),((n + 1) * m))]
-    B = np.array([line(n, size) for n in xrange(0, size)])
+    line = lambda n, m: [x for x in range((n * m),((n + 1) * m))]
+    B = np.array([line(n, size) for n in range(0, size)])
     print B
     
     print('\n')
