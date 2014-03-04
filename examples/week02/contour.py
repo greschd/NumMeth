@@ -18,10 +18,31 @@ X, Y = np.meshgrid(x, y)
 Z1 = f(X, Y)
 Z2 = g(X, Y)
 
-# man kann zwei contour - plots auch uebereinander anzeigen
+# man kann zwei contour - plots auch uebereinander anzeigen... die etwas schlechtere variant
 plt.figure()
 CS1 = plt.contour(X, Y, Z1)
 plt.clabel(CS1, inline=1, fontsize=10)
 CS2 = plt.contour(X, Y, Z2)
 plt.clabel(CS2, inline=1, fontsize=10)
 plt.show()
+
+# Optionen: N "Levels"
+plt.figure()
+CS1 = plt.contour(X, Y, Z1, 10)
+plt.clabel(CS1, inline=1, fontsize=10)
+plt.show()
+
+# Optionen: Levels angeben
+plt.figure()
+CS1 = plt.contour(X, Y, Z1, [0, 1.115])
+plt.clabel(CS1, inline=1, fontsize=10)
+plt.show()
+
+# gute Variante fuer die Nulstellensuche
+plt.figure()
+CS1 = plt.contour(X, Y, Z1, [0])
+plt.clabel(CS1, inline=1, fontsize=10)
+CS2 = plt.contour(X, Y, Z2, [0])
+plt.clabel(CS2, inline=1, fontsize=10)
+plt.show()
+
