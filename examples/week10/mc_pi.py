@@ -27,11 +27,21 @@ def mc_circle(f, N):
         y = random.random()
         r = np.sqrt(x**2 + y**2)
         if(r <= 1):
-            K += f(r)
+            K += f(x , y)
     return 4 * (K / float(N))
     
+def mc_circle_2(g, N):
+    K = 0
+    for i in range(N):
+        r = random.random()
+        theta = random.random() * 2. * np.pi
+        K += g(r, theta) * r
+    return K / float(N) * 2.* np.pi # hier muss man mit der Fläche des Kreises skalieren
+    
+    
 N = [2**i for i in range(5, 20)]
-f = lambda r: r**2
+f = lambda x, y: x**2 + y**2
+g = lambda r, theta: r**2
 
 #~ for n in N:
     #~ print(pi(n))
@@ -39,7 +49,7 @@ f = lambda r: r**2
 #~ for n in N:
     #~ print(mc_circle(f, n))
     
-functions = [pi, (lambda n: mc_circle(f, n))]
+functions = [pi, lambda n: mc_circle(f, n), lambda n: mc_circle_2(g, n)]
 
 for func in functions:
     print(func(N[-1]))
