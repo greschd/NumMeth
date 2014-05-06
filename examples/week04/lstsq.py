@@ -12,14 +12,15 @@ import scipy.linalg as la
 A = [[1, 0.2],[1, 0.8],[1, 1.2]]
 b = [1, 0.3, 0]
 
-x, res, rang, s = la.lstsq(A,b)
+#~ x, res, rang, s = la.lstsq(A,b)
+x = la.lstsq(A,b)[0]
 
 print("Loesung des Ausgleichsproblems: ")
 print(x)
-print("\nResiduum: ")
-print(res)
-print("\nRang der Matrix A:")
-print(rang)
-print("\nSingulaerwerte von A:")
-print(s)
+#~ print("\nResiduum: ")
+#~ print(res)
+#~ print("\nRang der Matrix A:")
+#~ print(rang)
+#~ print("\nSingulaerwerte von A:")
+#~ print(s)
 
