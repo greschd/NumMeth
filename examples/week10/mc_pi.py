@@ -9,6 +9,8 @@ import sys
 import random
 import numpy as np
 
+#--------------------Berechnung von Pi mit MC---------------------------#
+
 def pi(N):
     K = 0
 
@@ -20,6 +22,8 @@ def pi(N):
     
     return 4 * (K / float(N))
 
+#----------------Integration auf dem Kreis (Ortskoordinaten)------------#
+
 def mc_circle(f, N):
     K = 0
     for i in range(N):
@@ -29,7 +33,9 @@ def mc_circle(f, N):
         if(r <= 1):
             K += f(x , y)
     return 4 * (K / float(N))
-    
+
+#----------------Integration auf dem Kreis (Polarkoordinaten)-----------#
+
 def mc_circle_2(g, N):
     K = 0
     for i in range(N):
@@ -38,6 +44,8 @@ def mc_circle_2(g, N):
         K += g(r, theta) * r
     return K / float(N) * 2.* np.pi # hier muss man mit der Fläche des Kreises skalieren
     
+#--Integration auf dem Kreis (Polarkoordinaten, mit Fehlerbetrachtung)--#
+
 def mc_with_error(g, N):
     res = 0
     sqr = 0
@@ -64,3 +72,4 @@ functions = [pi, lambda n: mc_circle(f, n), lambda n: mc_circle_2(g, n), lambda 
 
 for func in functions:
     print(func(N[-1]))
+    print("")
